@@ -22,5 +22,5 @@ module.exports = function svg_css() {
 			cssPrefix: '--svg__',
 			addSize: false
 		}))
-		.pipe(dest('src/scss/global'))
+		.pipe(dest('src/assets/scss/global'))
 }

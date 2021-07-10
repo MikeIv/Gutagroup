@@ -1,4 +1,4 @@
-@mixin font-face($name, $file, $weight: 400, $style: normal) {
+@mixin font-face($name: 'Montserrat', $file:Montserrat-Regular, $weight: 400, $style: normal) {
 	@font-face {
 		font-family: "#{$name}";
 		src: local("#{$file}"),

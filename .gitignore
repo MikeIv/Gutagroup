@@ -1,0 +1,11 @@
+# Created by .ignore
+node_modules/
+build/
+package-lock.json
+tasks/ftp_settings.json
+
+.DS_Store
+.idea/
+*.log
+
+

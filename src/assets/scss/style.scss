@@ -1,7 +1,7 @@
 // Global
 @import 'global/*.scss';
 
-// Parts
+// Parts base
 @import "parts/page";
 @import "parts/header";
 @import "parts/main";
@@ -9,7 +9,11 @@
 
 @import "parts/vue";
 
+// parts bem
+@import "parts/slider";
+@import "parts/about";
+@import "parts/news";
+@import "parts/subscribe";
 
-// Project (DMS)
-@import "project/dms_entry";
+
 

@@ -1,0 +1,10 @@
+.news {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+
+  width: 100%;
+  min-height: 19rem;
+
+  background-color: rgba($green, 0.3);
+}

@@ -1,0 +1,69 @@
+<section id="crs" class="slider">
+    <h2 class="v-hidden">Слайдер</h2>
+    <div class="slider__wrapper">
+
+
+
+        <div class="slider__item">
+            <img :src="item.src" alt="img" class="slider__item-img"
+                 v-for="(item, id) in items"
+                 :key="id"
+                 v-bind:data-slide-to="id"
+                 :class="{'active' : id===itemnum}"
+
+            >
+        </div>
+
+        <button class="slider__btn slider__prev" @click="prevSlide">Prev</button>
+        <button class="slider__btn slider__next" @click="nextSlide">Next</button>
+    </div>
+
+
+</section>
+
+
+<script>
+
+  const crs = new Vue ({
+    el: '#crs',
+    data: {
+      itemnum: 0,
+      show: false,
+      items: [
+        {
+          id: 1,
+          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+        },
+        {
+          id: 2,
+          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+        },
+        {
+          id: 3,
+          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+        },
+        {
+          id: 4,
+          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+        }
+      ]
+    },
+    methods: {
+      prevSlide() {
+        if (this.itemnum > 0) {
+            this.itemnum--
+          console.log(this.itemnum)
+        }
+      },
+      nextSlide() {
+        if (this.itemnum < 3) {
+          this.itemnum++
+          console.log(this.itemnum)
+        }
+      },
+    },
+
+  })
+
+
+</script>

@@ -1,23 +1,31 @@
 <section id="crs" class="slider">
-    <h2 class="v-hidden">Слайдер</h2>
-    <div class="slider__wrapper">
+  <h2 class="v-hidden">Слайдер</h2>
+  <div class="slider__wrapper">
 
 
 
-        <div class="slider__item">
-            <img :src="item.src" alt="img" class="slider__item-img"
-                 v-for="(item, id) in items"
-                 :key="id"
-                 v-bind:data-slide-to="id"
-                 :class="{'active' : id===itemnum}"
+    <div class="slider__item" :style="{ 'margin-left': '-' + (200 * this.itemnum) + '%' }">
+      <a href="#" class="slider__link">
+        <img :src="item.src" alt="img" class="slider__item-img"
+             v-for="(item, id) in items"
+             :key="id"
+             v-bind:data-slide-to="id"
+             :class="{ 'active' : id===itemnum }"
 
-            >
-        </div>
-
-        <button class="slider__btn slider__prev" @click="prevSlide">Prev</button>
-        <button class="slider__btn slider__next" @click="nextSlide">Next</button>
+             :interval="0"
+        >
+      </a>
     </div>
 
+    <button class="slider__btn slider__prev" @click="prevSlide">
+      <svg class="slider__icon-move" role="button">
+        <use xlink:href="#icon-arrow"></use>
+      </svg>
+    </button>
+    <button class="slider__btn slider__next" @click="nextSlide">Next</button>
+  </div>
+
+  <input type="text">
 
 </section>
 
@@ -29,18 +37,19 @@
     data: {
       itemnum: 0,
       show: false,
+      interval: 3000,
       items: [
         {
           id: 1,
-          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+          src: 'img/slide_1.jpg'
         },
         {
           id: 2,
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+          src: 'img/slide_2.jpg'
         },
         {
           id: 3,
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+          src: 'img/slide_3.jpg'
         },
         {
           id: 4,
@@ -51,17 +60,28 @@
     methods: {
       prevSlide() {
         if (this.itemnum > 0) {
-            this.itemnum--
+          this.itemnum--
           console.log(this.itemnum)
         }
       },
       nextSlide() {
-        if (this.itemnum < 3) {
+        if (this.itemnum >= this.items.length - 1) {
+          this.itemnum = 0
+
+        } else {
           this.itemnum++
           console.log(this.itemnum)
         }
       },
     },
+    mounted() {
+      if(this.interval > 0) {
+        let vm = this;
+        setInterval( function () {
+          vm.nextSlide()
+        }, vm.interval)
+      }
+    }
 
   })
 

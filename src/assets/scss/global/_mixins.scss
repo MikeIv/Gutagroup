@@ -41,6 +41,47 @@
 	background-repeat: no-repeat;
 }
 
+// Input
+@mixin input ($h:3.2, $br:0.2, $p:2) {
+	width: 100%;
+	height: #{$h}rem;
+
+	margin-bottom: 2rem;
+	padding-top: 0.3rem;
+	padding-left: #{$p}rem;
+	padding-right: #{$p}rem;
+	box-sizing: border-box;
+
+	border: 1px solid $secondary;
+	border-radius: #{$br}rem;
+
+	background-color: $white;
+
+	&:focus {
+		background-color: #14A5DA1F;
+	}
+}
+
+@mixin textarea ($h:13, $br:0.2, $p:2) {
+	width: 100%;
+	height: #{$h}rem;
+
+	margin-bottom: 2rem;
+	padding-top: 0.3rem;
+	padding-left: #{$p}rem;
+	padding-right: #{$p}rem;
+	box-sizing: border-box;
+
+	border: 1px solid #E76400;
+	border-radius: #{$br}rem;
+
+	background-color: $white;
+
+	&:focus {
+		background-color: #14A5DA1F;
+	}
+}
+
 
 // Buttons
 @mixin btn_anim($scaleMax:1.05, $scaleMin:0.95) {
@@ -92,6 +133,32 @@
 				#{$spr}px rgba(0, 0, 0, 0.1)
 }
 
+
+// Typography
+@mixin main-txt ($sz:1.2, $lh:1.6) {
+	font-size: #{$sz}rem;
+	line-height: #{$lh}rem;
+}
+
+@mixin h2 ($sz:1.6, $fw:700) {
+
+	text-align: center;
+	font-size: #{$sz}rem;
+	font-weight: #{$fw};
+	color: $black;
+
+	text-transform: uppercase;
+}
+
+@mixin h3 ($sz:1.3, $fw:700) {
+
+	text-align: center;
+	font-size: #{$sz}rem;
+	font-weight: #{$fw};
+	color: $black;
+
+	text-transform: uppercase;
+}
 
 
 

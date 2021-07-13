@@ -15,16 +15,19 @@
 
 .footer__wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 
   width: 100%;
 
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
   box-sizing: border-box;
 
-  background-color: $neutral-300;
+  background-color: #DCE5E9;
 }
 
 .footer__title {
@@ -40,4 +43,27 @@
   color: $base;
 
   text-decoration: none;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+
+  height: 2.4rem;
+
+  margin-bottom: 1rem;
+
+
+  @media screen and (min-width: 768px) {
+
+
+  }
+}
+
+.footer__logo-img {
+  height: 2.4rem;
+}
+
+.footer__txt {
+  font-size: 1.4rem;
 }

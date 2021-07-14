@@ -29,10 +29,47 @@
 
 <header id="hdr" class="header">
 
-  <div class="header__wrapper">
+  <!--   Top Menu   -->
+  <section class="header__top-line">
+    <h2 class="v-hidden">Верхнее меню</h2>
+    <div class="header__wrapper">
+      <ul class="header__top-list">
+        <li class="header__top-item">Режим работы</li>
+        <li class="header__top-item">Правила посещения</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <div class="header__wrapper header__bottom-line">
     <a href="#" class="header__logo">
       <img src="img/logo.png" alt="логотип компании" class="header__logo-img">
     </a>
+
+    <nav class="header__main-nav">
+      <ul class="header__main-nav-list">
+        <li class="header__main-nav-item">
+          <a href="#" class="header__main-nav-link">О компании</a>
+        </li>
+        <li class="header__main-nav-item">
+          <a href="#" class="header__main-nav-link">Партнёрская программа</a>
+        </li>
+        <li class="header__main-nav-item">
+          <a href="#" class="header__main-nav-link">Реклама</a>
+        </li>
+        <li class="header__main-nav-item">
+          <a href="#" class="header__main-nav-link">Пресс-центр</a>
+        </li>
+        <li class="header__main-nav-item">
+          <a href="#" class="header__main-nav-link">Вакансии</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header__menu-enter">
+      <button class="header__enter-reg">Регистрация</button>
+      <a href="#" class="header__enter-link">Вход</a>
+    </div>
 
     <!--        <h1 class="header__title">Header</h1>-->
     <button class="header__menu-mob-btn" @click="show = !show">

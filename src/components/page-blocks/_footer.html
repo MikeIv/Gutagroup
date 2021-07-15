@@ -1,76 +1,85 @@
 <footer class="footer">
   <div class="footer__wrapper">
     <h1 class="v-hidden">Footer</h1>
-    <a href="#" class="footer__logo">
+    <div class="footer__col footer__col--left">
+      <a href="#" class="footer__logo">
       <img src="img/logo.png" alt="логотип компании" class="header__logo-img">
     </a>
 
-    <p class="footer__txt footer__txt--mb">г. Москва, метро Бауманская, ул. Бауманская, дом 44</p>
-    <p class="footer__txt footer__txt--bold footer__txt--mb">+7 000 000 00 00</p>
+      <p class="footer__txt footer__txt--mb">г. Москва, метро Бауманская, ул. Бауманская, дом 44</p>
+      <p class="footer__txt footer__txt--bold footer__txt--mb">+7 000 000 00 00</p>
+    </div>
 
-    <nav class="footer__nav">
-      <ul class="footer__list">
-        <li class="footer__item">
-          <a class="footer__item-link" href="#">О компании</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__item-link" href="#">Партнёрская программа</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__item-link" href="#">Реклама</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__item-link" href="#">Пресс-центр</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__item-link" href="#">Вакансии</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__item-link" href="#">Помощь</a>
-        </li>
-        <li class="footer__item">
-          <a class="footer__item-link" href="#">Правила</a>
-        </li>
-      </ul>
-    </nav>
 
-    <section class="footer__social">
-      <h2 class="footer__social-h2">Мы в соц. сетях</h2>
-      <ul class="footer__social-list">
-        <li class="footer__social-item">
-          <svg class="footer__social-icon" role="button">
-            <use xlink:href="#icon-fb-f"></use>
-          </svg>
-        </li>
-        <li class="footer__social-item">
-          <svg class="footer__social-icon" role="button">
-            <use xlink:href="#icon-odn"></use>
-          </svg>
-        </li>
-        <li class="footer__social-item">
-          <svg class="footer__social-icon" role="button">
-            <use xlink:href="#icon-inst"></use>
-          </svg>
-        </li>
-      </ul>
-    </section>
+    <div class="footer__col footer__col--right">
+      <nav class="footer__nav">
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a class="footer__item-link" href="#">О компании</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__item-link" href="#">Партнёрская программа</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__item-link" href="#">Реклама</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__item-link" href="#">Пресс-центр</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__item-link" href="#">Вакансии</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__item-link" href="#">Помощь</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__item-link" href="#">Правила</a>
+          </li>
+        </ul>
+      </nav>
 
-    <section class="footer__social">
-      <h2 class="footer__social-h2">Подписка на новости</h2>
+      <div class="footer__incol-block">
+        <section class="footer__social">
+          <h2 class="footer__social-h2">Мы в соц. сетях</h2>
+          <ul class="footer__social-list">
+            <li class="footer__social-item">
+              <svg class="footer__social-icon" role="button">
+                <use xlink:href="#icon-fb-f"></use>
+              </svg>
+            </li>
+            <li class="footer__social-item">
+              <svg class="footer__social-icon" role="button">
+                <use xlink:href="#icon-odn"></use>
+              </svg>
+            </li>
+            <li class="footer__social-item">
+              <svg class="footer__social-icon" role="button">
+                <use xlink:href="#icon-inst"></use>
+              </svg>
+            </li>
+          </ul>
+        </section>
 
-      <div class="footer__subscribe">
-        <input type="text" class="footer__subscribe-input" placeholder="example@mail.com">
-        <button class="footer__subscribe-btn">Ок</button>
+        <section class="footer__social">
+          <h2 class="footer__social-h2">Подписка на новости</h2>
+          <div class="footer__subscribe">
+            <input type="text" class="footer__subscribe-input" placeholder="example@mail.com">
+            <button class="footer__subscribe-btn">Ок</button>
+          </div>
+        </section>
       </div>
-
-    </section>
+      
+    </div>
 
   </div>
 
   <section class="footer__privacy">
     <h2 class="v-hidden">Политика конфиденциальности</h2>
-    <span class="footer__privacy-txt">Политика конфиденциальности</span>
-    <span class="footer__privacy-txt">Cookies</span>
+    <div class="footer__bottom-line">
+      <span class="footer__privacy-txt footer__privacy-txt--left">© ООО «Глобус», 2016 — 2019</span>
+      <span class="footer__privacy-txt">Политика конфиденциальности</span>
+      <span class="footer__privacy-txt">Cookies</span>
+    </div>
 
   </section>
 </footer>

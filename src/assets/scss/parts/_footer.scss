@@ -8,7 +8,8 @@
   font-family: $mainFont;
 
   @media screen and (min-width: 768px) {
-
+    align-items: center;
+    background-color: #DCE5E9;
   }
 }
 
@@ -27,7 +28,45 @@
   box-sizing: border-box;
 
   background-color: #DCE5E9;
+
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+
+    max-width: 115.2rem;
+  }
 }
+
+.footer__col {
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &--left {
+      width: 30%;
+    }
+
+    &--right {
+      width: 70%;
+    }
+  }
+}
+
+.footer__incol-block {
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    width: 100%;
+  }
+}
+
 
 .footer__title {
   margin-right: auto;
@@ -46,10 +85,10 @@
 
 .footer__logo {
   display: flex;
+  justify-content: center;
   align-items: center;
 
   height: 2.4rem;
-
   margin-bottom: 1rem;
 
 
@@ -93,6 +132,14 @@
   justify-content: flex-start;
 
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 1rem;
+  }
 }
 
 .footer__item {
@@ -102,6 +149,11 @@
 
   width: 100%;
   min-height: 2.6rem;
+
+  @media screen and (min-width: 768px) {
+    flex-shrink: 1;
+    width: auto;
+  }
 
 }
 
@@ -166,7 +218,7 @@
 
 .footer__privacy {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   width: 100%;
@@ -179,19 +231,46 @@
   background-color: #001F2B;
 }
 
+.footer__bottom-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    max-width: 115.2rem;
+  }
+}
+
 .footer__privacy-txt {
   font-size: 1.2rem;
   color: $white;
+
+  &.footer__privacy-txt--left {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      margin-right: auto;
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 2rem;
+  }
 }
 
 .footer__subscribe {
   display: flex;
+  justify-content: center;
   align-items: center;
 
   width: 100%;
+  max-width: 50rem;
   height: 3rem;
 
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 

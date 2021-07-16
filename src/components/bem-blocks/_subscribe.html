@@ -4,17 +4,10 @@
 
     <form class="subscribe__form"
           @submit="checkForm"
-          action="https://vuejs.org/"
-          method="post"
+
     >
       <h2 class="subscribe__h2">подпишитесь на рассылку</h2>
       <div class="subscribe__content-wrapper">
-        <div v-if="errors.length">
-          <b>Пожалуйста исправьте указанные ошибки:</b>
-          <ul>
-            <li v-for="error in errors">{{ error }}</li>
-          </ul>
-        </div>
         <label class="subscribe__label">
           <span class="subscribe__label-txt">Имя</span>
           <input type="text" class="subscribe__input" placeholder="Имя"
@@ -22,7 +15,7 @@
                  v-model="name"
                  type="text"
                  name="name"
-
+                 required
           >
         </label>
 
@@ -33,14 +26,29 @@
                  v-model="email"
                  type="email"
                  name="email"
+                 required
           >
         </label>
 
-        <label class="subscribe__label"><span class="subscribe__label-txt">Заполните поле</span>
+        <label class="subscribe__label">
+          <span class="subscribe__label-txt">Заполните поле</span>
           <textarea class="subscribe__textarea" name="" id="" cols="30" rows="10"></textarea>
         </label>
 
-        <button class="subscribe__btn" type="submit">Подписаться</button>
+        <div v-if="errors.length" class="subscribe__error-block">
+          <p class="subscribe__error-attention">Пожалуйста исправьте ошибки:</p>
+          <ul class="subscribe__error-list">
+            <li class="subscribe__error-item" v-for="error in errors">{{ error }}</li>
+          </ul>
+        </div>
+
+        <button class="subscribe__btn" type="submit" @click="checkForm">Подписаться</button>
+      </div>
+
+      <div class="subscribe__success" :class="{ active: send = !send }">
+        <div class="subscribe__content">
+          <p class="subscribe__success-txt">Благодарим за подписку!</p>
+        </div>
       </div>
 
     </form>
@@ -58,6 +66,7 @@
       errors: [],
       name: null,
       email: null,
+      send: false,
 
     },
 
@@ -67,6 +76,8 @@
 
         if (!this.name) {
           this.errors.push('Укажите имя.');
+        } else if (!this.validName(this.name)) {
+          this.errors.push('Имя не должно содержать цифры');
         }
         if (!this.email) {
           this.errors.push('Укажите электронную почту.');
@@ -80,10 +91,18 @@
 
         e.preventDefault();
       },
+      validName: function (name) {
+        var ren =
+          /^[a-zA-Z_ ]*$/;
+        return ren.test(name);
+      },
       validEmail: function (email) {
         var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
-      }
+      },
+      name: null,
+      email: null,
+      send: true,
     }
 
   })

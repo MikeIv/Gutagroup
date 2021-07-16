@@ -28,6 +28,7 @@
     max-width: 115.2rem;
 
     padding-top: 7rem;
+    padding-bottom: 8rem;
   }
 }
 
@@ -38,6 +39,8 @@
 
   @media screen and (min-width: 768px) {
     width: 35%;
+    text-align: left;
+    font-size: 3.2rem;
   }
 }
 
@@ -46,6 +49,8 @@
 
   @media screen and (min-width: 768px) {
     width: 65%;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
   }
 }
 
@@ -69,6 +74,11 @@
   text-decoration: none;
 
   text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    margin-left: 35%;
+  }
 
   &:before {
     position: absolute;

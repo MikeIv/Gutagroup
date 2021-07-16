@@ -1,25 +1,91 @@
-<section class="subscribe">
+<section id="sb" class="subscribe">
   <div class="subscribe__wrapper">
     <h2 class="v-hidden">Подписка на рассылку</h2>
 
-    <form class="subscribe__form">
+    <form class="subscribe__form"
+          @submit="checkForm"
+          action="https://vuejs.org/"
+          method="post"
+    >
       <h2 class="subscribe__h2">подпишитесь на рассылку</h2>
       <div class="subscribe__content-wrapper">
-        <label class="subscribe__label"><span class="subscribe__label-txt">Имя</span>
-          <input type="text" class="subscribe__input" placeholder="Имя">
+        <div v-if="errors.length">
+          <b>Пожалуйста исправьте указанные ошибки:</b>
+          <ul>
+            <li v-for="error in errors">{{ error }}</li>
+          </ul>
+        </div>
+        <label class="subscribe__label">
+          <span class="subscribe__label-txt">Имя</span>
+          <input type="text" class="subscribe__input" placeholder="Имя"
+                 id="name"
+                 v-model="name"
+                 type="text"
+                 name="name"
+
+          >
         </label>
 
-        <label class="subscribe__label"><span class="subscribe__label-txt">E-mail</span>
-          <input type="text" class="subscribe__input" placeholder="examle@you.mail">
+        <label class="subscribe__label">
+          <span class="subscribe__label-txt">E-mail</span>
+          <input type="text" class="subscribe__input" placeholder="examle@you.mail"
+                 id="email"
+                 v-model="email"
+                 type="email"
+                 name="email"
+          >
         </label>
 
         <label class="subscribe__label"><span class="subscribe__label-txt">Заполните поле</span>
           <textarea class="subscribe__textarea" name="" id="" cols="30" rows="10"></textarea>
         </label>
 
-        <button class="subscribe__btn">Подписаться</button>
+        <button class="subscribe__btn" type="submit">Подписаться</button>
       </div>
 
     </form>
   </div>
 </section>
+
+
+
+<script>
+
+
+  const sb = new Vue ({
+    el: '#sb',
+    data: {
+      errors: [],
+      name: null,
+      email: null,
+
+    },
+
+    methods: {
+      checkForm: function (e) {
+        this.errors = [];
+
+        if (!this.name) {
+          this.errors.push('Укажите имя.');
+        }
+        if (!this.email) {
+          this.errors.push('Укажите электронную почту.');
+        } else if (!this.validEmail(this.email)) {
+          this.errors.push('Укажите корректный адрес электронной почты.');
+        }
+
+        if (!this.errors.length) {
+          return true;
+        }
+
+        e.preventDefault();
+      },
+      validEmail: function (email) {
+        var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
+    }
+
+  })
+
+</script>

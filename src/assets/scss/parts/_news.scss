@@ -73,6 +73,19 @@
 
   list-style: none;
 
+  &--add {
+    display: none;
+    margin-top: 0;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 3rem;
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
@@ -159,10 +172,15 @@
 }
 
 
-.news__link {
+.news__btn {
+
+  @include no-btn;
+
   position: relative;
-  display: flex;
+  display: none;
   justify-content: center;
+
+
 
   width: 15rem;
 
@@ -178,6 +196,10 @@
   text-decoration: none;
 
   text-transform: uppercase;
+
+  &.active {
+    display: flex;
+  }
 
 
   @media screen and (min-width: 768px) {

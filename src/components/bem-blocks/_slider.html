@@ -5,16 +5,34 @@
 
 
     <div class="slider__item" :style="{ 'margin-left': '-' + (200 * this.itemnum) + '%' }">
-      <a href="#" class="slider__link">
-        <img :src="item.src" alt="img" class="slider__item-img"
-             v-for="(item, id) in items"
-             :key="id"
-             v-bind:data-slide-to="id"
-             :class="{ 'active' : id===itemnum }"
+      <div class="slider__link-wrapper">
+        <a href="#" class="slider__link"
+           v-for="(item, id) in items"
+           :key="id"
+           v-bind:data-slide-to="id"
+           :class="{ 'active' : id===itemnum }"
 
-             :interval="0"
+           :interval="0"
         >
+
+          <article class="slider__describe-block">
+            <div  class="slider__describe-btn">{{ item.btn }}</div>
+            <h2 class="slider__describe-h2">{{ item.title }}</h2>
+            <p class="slider__describe-txt">Спрайты должны немного отличаться друг от друга, чтобы было заметно движение.</p>
+          </article>
+
+        <img :src="item.src" alt="img" class="slider__item-img">
       </a>
+      </div>
+    </div>
+
+    <div class="slider__line-block">
+      <span class="slider__line"
+            v-for="(item, id) in items"
+            :key="id"
+            v-bind:data-slide-to="id"
+            :class="{ 'active' : id===itemnum }"
+      ></span>
     </div>
 
     <button class="slider__btn slider__prev" @click="prevSlide">
@@ -38,25 +56,27 @@
     el: '#crs',
     data: {
       itemnum: 0,
-      show: false,
       interval: 3000,
       items: [
         {
           id: 1,
+          btn: 'Анимация',
+          title: 'Подготовка спрайтов для анимации в Unity',
           src: 'img/slide_1.jpg'
         },
         {
           id: 2,
+          btn: 'Анимация-2',
+          title: 'Подготовка спрайтов для анимации-2 в Unity',
           src: 'img/slide_2.jpg'
         },
         {
           id: 3,
+          btn: 'Анимация-3',
+          title: 'Подготовка спрайтов для анимации-3 в Unity',
           src: 'img/slide_3.jpg'
         },
-        {
-          id: 4,
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-        }
+
       ]
     },
     methods: {

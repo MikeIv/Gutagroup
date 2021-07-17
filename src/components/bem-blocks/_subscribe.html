@@ -3,51 +3,64 @@
     <h2 class="v-hidden">Подписка на рассылку</h2>
 
     <form class="subscribe__form"
-          @submit="checkForm"
-
+          @submit.prevent="checkForm"
     >
       <h2 class="subscribe__h2">подпишитесь на рассылку</h2>
       <div class="subscribe__content-wrapper">
+
+
+
         <label class="subscribe__label">
+
+            <div class="subscribe__error-block">
+                <p class="subscribe__error-item">{{ errors }}</p>
+            </div>
+
           <span class="subscribe__label-txt">Имя</span>
           <input type="text" class="subscribe__input" placeholder="Имя"
                  id="name"
-                 v-model="name"
-                 type="text"
                  name="name"
-                 required
+                 v-model="youname"
+                 :class="{ attention:  this.errors }"
           >
         </label>
 
+
+
         <label class="subscribe__label">
+
+            <div class="subscribe__error-block">
+                <p class="subscribe__error-item">{{ emailerrors }}</p>
+            </div>
+
           <span class="subscribe__label-txt">E-mail</span>
           <input type="text" class="subscribe__input" placeholder="examle@you.mail"
                  id="email"
                  v-model="email"
-                 type="email"
                  name="email"
-                 required
+                 :class="{ attention:  this.emailerrors }"
           >
         </label>
 
         <label class="subscribe__label">
-          <span class="subscribe__label-txt">Заполните поле</span>
+          <span class="subscribe__label-txt">Ваши комментарии</span>
           <textarea class="subscribe__textarea" name="" id="" cols="30" rows="10"></textarea>
         </label>
 
-        <div v-if="errors.length" class="subscribe__error-block">
-          <p class="subscribe__error-attention">Пожалуйста исправьте ошибки:</p>
-          <ul class="subscribe__error-list">
-            <li class="subscribe__error-item" v-for="error in errors">{{ error }}</li>
-          </ul>
-        </div>
 
-        <button class="subscribe__btn" type="submit" @click="checkForm">Подписаться</button>
+
+        <button class="subscribe__btn" type="submit" @click:="checkForm">Подписаться</button>
+
+          <div class="subscribe__success-block">
+              <p class="subscribe__success-item">{{  success }}</p>
+          </div>
       </div>
 
-      <div class="subscribe__success" :class="{ active: send = !send }">
+      <div class="subscribe__success"
+            v-show="modal"
+      >
         <div class="subscribe__content">
-          <p class="subscribe__success-txt">Благодарим за подписку!</p>
+          <p class="subscribe__success-txt">Уважаемый, {{ successname }}, спасибо за подписку!</p>
         </div>
       </div>
 
@@ -63,47 +76,78 @@
   const sb = new Vue ({
     el: '#sb',
     data: {
-      errors: [],
-      name: null,
+      errors: '',
+      emailerrors: '',
+      success: '',
+      youname: null,
       email: null,
       send: false,
+      modal: false,
+      successname: '',
 
     },
 
     methods: {
-      checkForm: function (e) {
-        this.errors = [];
+      checkForm () {
 
-        if (!this.name) {
-          this.errors.push('Укажите имя.');
-        } else if (!this.validName(this.name)) {
-          this.errors.push('Имя не должно содержать цифры');
+        this.errors = ''
+        this.emailerrors = ''
+        this.success = ''
+
+
+     if (!this.youname) {
+          this.errors = 'Заполните поле';
+        } else if (!this.validName(this.youname)) {
+          this.errors = 'Цифры в имени недопустимы';
         }
-        if (!this.email) {
-          this.errors.push('Укажите электронную почту.');
+        else if (!this.email) {
+          this.emailerrors = 'Заполните поле';
         } else if (!this.validEmail(this.email)) {
-          this.errors.push('Укажите корректный адрес электронной почты.');
+          this.emailerrors = 'Не верный адрес';
         }
 
-        if (!this.errors.length) {
-          return true;
+     else if (this.youname && this.email) {
+          this.success = 'Заявка отправлена';
+
+          setTimeout(() => {
+            this.modal = !this.modal
+          }, 1500);
+
+
+       setTimeout(() => {
+         this.modal = !this.modal
+       }, 4000);
+
+          this.successname = this.youname
+
+        this.youname = null
+        this.email = null
         }
 
-        e.preventDefault();
+
+
       },
-      validName: function (name) {
-        var ren =
-          /^[a-zA-Z_ ]*$/;
-        return ren.test(name);
+      validName: function (youname) {
+        let re =
+          /^[A-Za-zА-Яа-я +]*$/g;
+        return re.test(youname);
       },
       validEmail: function (email) {
-        var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let re =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
       },
-      name: null,
-      email: null,
-      send: true,
-    }
+
+
+      // showModal() {
+      //     return setTimeout(() => {
+      //       this.showModal()
+      //       this.send = !this.send
+      //     }, 5000)
+      // },
+
+    },
+
 
   })
 

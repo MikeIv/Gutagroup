@@ -150,6 +150,8 @@
 	color: $black;
 
 	text-transform: uppercase;
+
+	user-select: none;
 }
 
 @mixin h3 ($sz:1.3, $fw:700) {
@@ -160,6 +162,8 @@
 	color: $black;
 
 	text-transform: uppercase;
+
+	user-select: none;
 }
 
 

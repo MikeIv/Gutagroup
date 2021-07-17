@@ -34,17 +34,18 @@
             :class="{ 'active' : id===itemnum }"
       ></span>
     </div>
-
-    <button class="slider__btn slider__prev" @click="prevSlide">
-      <svg class="slider__icon-move" role="button">
-        <use xlink:href="#icon-arrow"></use>
-      </svg>
-    </button>
-    <button class="slider__btn slider__next" @click="nextSlide">
-      <svg class="slider__icon-move" role="button">
-        <use xlink:href="#icon-arrow"></use>
-      </svg>
-    </button>
+      <div class="slider__btn-wrapper">
+          <button class="slider__btn slider__prev" @click="prevSlide">
+              <svg class="slider__icon-move" role="button">
+                  <use xlink:href="#icon-arrow"></use>
+              </svg>
+          </button>
+          <button class="slider__btn slider__next" @click="nextSlide">
+              <svg class="slider__icon-move" role="button">
+                  <use xlink:href="#icon-arrow"></use>
+              </svg>
+          </button>
+      </div>
   </div>
 
 </section>

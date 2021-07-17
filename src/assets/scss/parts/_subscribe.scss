@@ -209,6 +209,8 @@
   left: calc(50% - 14.5rem);
 
   display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: 29rem;
   height: 42rem;
@@ -216,8 +218,45 @@
   background-color: $white;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
 
+  @media screen and (min-width: 768px) {
+    left: calc(50% - 35rem);
+    width: 70rem;
 
-  &.active {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+}
+
+.subscribe__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+
+.subscribe__success-icon {
+  width: 4rem;
+  height: 4rem;
+
+  margin-bottom: 2rem;
+}
+
+.subscribe__success-txt {
+  width: 100%;
+
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: $black;
+
+  &--name {
+    color: $secondary;
   }
 }

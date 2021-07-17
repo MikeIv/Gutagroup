@@ -3,7 +3,7 @@
 
 # Тестовый проект для Gutagroup
 
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/budfy/easy-webdev-startpack?style=plastic) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/budfy/Easy-webdev-startpack?style=plastic) ![GitHub last commit](https://img.shields.io/github/last-commit/budfy/easy-webdev-startpack?style=plastic) ![GitHub forks](https://img.shields.io/github/forks/budfy/Easy-webdev-startpack?style=plastic)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/budfy/easy-webdev-startpack?style=plastic)
 
 
 ## Требования к проекту:
